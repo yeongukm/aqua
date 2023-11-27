@@ -6,7 +6,8 @@ on:
   pull_request:
   workflow_dispatch:
 env:
-  IMAGE_NAME: ${{ github.repository }}:${{ github.sha }}
+  #IMAGE_NAME: ${{ github.repository }}:${{ github.sha }}
+  IMAGE: nginx:perl
   REGISTRY: "Docker Hub"
   BUILD_JOB_NAME: "Github-Action-Sample"
   BUILD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/
@@ -23,8 +24,8 @@ jobs:
         run: |
           wget --user ${{ secrets.AQUA_EMAIL }} --password ${{ secrets.AQUA_PASS }} https://download.aquasec.com/scanner/6.5.0/scannercli
 
-      - name: Build the image
-        run: docker build -t $IMAGE_NAME .
+      #- name: Build the image
+      # run: docker build -t $IMAGE_NAME .
        
       - name: Aqua Scanner
         run: |
