@@ -6,7 +6,7 @@ on:
   pull_request:
   workflow_dispatch:
 env:
-  IMAGE: "nginx:perl"
+  IMAGE: ${{ github.repository }}:${{ github.sha }}
   REGISTRY: "Docker Hub"
   BUILD_JOB_NAME: "Github-Action-Sample"
   BUILD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/
@@ -25,4 +25,4 @@ jobs:
       - name: Aqua Scanner
         run: |
           chmod +x scannercli
-          ./scannercli scan -U ${{ secrets.AQUA_SERVER_USER }} -P ${{ secrets.AQUA_SERVER_PASS }} -H ${{ secrets.AQUA_SERVER }} ${{ env.IMAGE }} --registry "${{ env.REGISTRY }}"
+          ./scannercli scan -U ${{ secrets.AQUA_SERVER_USER }} -P ${{ secrets.AQUA_SERVER_PASS }} -H ${{ secrets.AQUA_SERVER }} ${{ env.IMAGE }} --registry "${{ secret.REGISTRY }}"
