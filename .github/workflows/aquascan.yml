@@ -24,8 +24,11 @@ jobs:
         run: |
           wget --user ${{ secrets.AQUA_EMAIL }} --password ${{ secrets.AQUA_PASS }} https://download.aquasec.com/scanner/2022.4/scannercli
 
-      #- name: Build the image
-      # run: docker build -t $IMAGE_NAME .
+      - name: Build the image
+        run: docker build -t $IMAGE_NAME .
+        
+      - name: docker image ls
+        run: docker image ls
        
       - name: Aqua Scanner
         run: |
