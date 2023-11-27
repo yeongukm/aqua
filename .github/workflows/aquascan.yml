@@ -31,4 +31,4 @@ jobs:
         run: |
           chmod +x scannercli
           #./scannercli scan -U ${{ secrets.AQUA_SERVER_USER }} -P ${{ secrets.AQUA_SERVER_PASS }} -H ${{ secrets.AQUA_SERVER }} ${{ env.IMAGE }} --registry "${{ ENV.REGISTRY }}"
-          ./scannercli scan -U ${{ secrets.AQUA_SERVER_USER }} --token ${{ secrets.AQUA_SCANNER_PASS }} -H ${{ secrets.AQUA_HOST }} $IMAGE_NAME --registry local
+          ./scannercli scan -U ${{ secrets.AQUA_SERVER_USER }} --token ${{ secrets.AQUA_SCANNER_PASS }} -H ${{ secrets.AQUA_HOST }} $IMAGE_NAME --local
